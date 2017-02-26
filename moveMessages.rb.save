@@ -1,0 +1,14 @@
+file '/tmp/motd' do
+	action :delete
+end
+
+file '/tmp/messages' do
+  content IO.read('/tmp/motd')
+  action :create
+end
+
+directory '/tmp/messages’
+file '/tmp/messages/motd' do
+  content 'hello chef ***’
+end
+
